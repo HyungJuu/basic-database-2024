@@ -49,6 +49,7 @@
             [HAVING 검색조건(들)]
              [ORDER BY 속성이름(들) [ASC | DESC]]
             ```
-        - SELECT문 2차학습
+        - SELECT문 학습
+            - 기본, 조건검색 학습 중
 
 ## 2일차
