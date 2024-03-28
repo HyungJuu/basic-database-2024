@@ -24,11 +24,31 @@
     - DB언어
         - SQL(Structered Query Language) : 구조화된 질의 언어
             - DDL (Data Definition Language) : 데이터베이스, 테이블, 인덱스 생성
-            - DML (Data Manipulation Language) : 검색, 삽입, 수정, 삭제 등 기능
+            - DML (Data Manipulation Language) : 검색(SELECT), 삽입(INSERT), 수정(UPDATE), 삭제(DELETE) 등 기능★
             - DCL (Data Control Language) : 권한, 트랙스액션 부여/제거 기능
 
-    - 기본명령어
+    - 기본사용법
         - -- : 주석 /* */(C/C++ 주석도 사용가능)
         - F5 : 실행
+            - 실행하고자 하는 부분반 드래그하여 실행가능
+    
+    - SQL 기본학습
+        - SSMS 실행
+
+    - DML 학습
+        - SQL 명령어 키워드 : SELECT, INSERT, UPDATE, DELETE
+        - IT개발 표현언어 : Request, Create, Update, Delete(CRUD라고 부름)
+            - CRUD로 개발하라 &rarr; 검색, 삽입, 수정, 삭제할 수 있는 기능을 개발하라는 것
+        - SELECT
+            ```sql
+            -- 들여쓰기를 키워드 끝에 맞춰서 함
+             SELECT [All | DISTINCT] 속성이름(들)
+               FROM 테이블이름(들)
+             [WHERE 검색조건(들)]
+             [GROUP BY 속성이름(들)]
+            [HAVING 검색조건(들)]
+             [ORDER BY 속성이름(들) [ASC | DESC]]
+            ```
+        - SELECT문 2차학습
 
 ## 2일차
