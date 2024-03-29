@@ -2,7 +2,7 @@
 부경대 2024 IoT 개발자과정 SQL Server 학습 리포지토리
 
 ## 1일차
-- MS SQL Server 설치(최신버전) https://www.microsoft.com/ko-kr/sql-server/sql-server-downloads
+- [MS SQL Server 설치(최신버전)](https://www.microsoft.com/ko-kr/sql-server/sql-server-downloads)
     - DBMS 엔진 &rarr; 개발자 버전
         - ISO 다운로드 후 설치 추천
         - SQL Server에 대한 Azure 확장 비활성화 후 진행
@@ -24,9 +24,10 @@
 
     - DB언어
         - SQL(Structered Query Language) : 구조화된 질의 언어
-            - DDL (Data Definition Language) : 데이터베이스, 테이블, 인덱스 생성
+            - DDL (Data Definition Language) : 데이터베이스, 테이블, 인덱스 생성 &rarr; CREATE, ALTER, DROP
             - DML (Data Manipulation Language) : 검색(SELECT), 삽입(INSERT), 수정(UPDATE), 삭제(DELETE) 등 기능★
-            - DCL (Data Control Language) : 권한, 트랙스액션 부여/제거 기능
+            - DCL (Data Control Language) : 권한 부여/제거 기능 &rarr; GRANT, REVOKE
+            - TCL (Transaction Control Language) : 트랜스액션(트랜잭션) 제어 기능 &rarr; COMMIT, ROLLBACK
 
     - 기본사용법
         - -- : 주석 /* */(C/C++ 주석도 사용가능)
@@ -55,3 +56,39 @@
             - 기본, 조건검색 학습 중
 
 ## 2일차
+- Database 학습
+    - DB 개발시 사용할 수 있는 툴
+        - SSMS(기본)
+        - Visual Studio - 아무 설치 없이 개발 가능
+        - Visual Studio Code - SQL Server(mssql) 플러그인 설치 필요
+            - 실행 : ctrl + shift + E
+    - ServerName(HostName) - [본인 컴퓨터의 이름 | 네트워크 주소 | 127.0.0.1(LoopBack IP) | localhost(LoopBack URL)] 중 선택 사용
+
+    - 관계 데이터 모델
+        - 릴레이션 : 행과 열로 구성된 테이블
+            - 행(튜플), 열(속성), 스키마(속성이름), 인스턴스
+
+        - 매핑되는 이름 테이블(실제 DB)
+            - 행(레코드), 열(컬럼, 필드), 내포(컬럼이름), 외연(데이터)
+
+        - 차수(degree) - 속성의 개수
+        - 카디널리티(cardinality) - 튜플의 개수
+
+        - 릴레이션 특징
+            1. 속성은 단일값을 가짐 (책이름이 여러번 X)
+            2. 속성은 서로 다른 이름을 가짐 (책이름이라는 속성이 여러번 X)
+            3. 한 속성의 값은 모두 같은(정의된) 도메인 값을 가짐 (대학교 학년에 5학년 X)
+            4. 속성의 순서는 상관없음
+            5. 릴레이션 내의 중복된 튜플 허용하지 않음 (같은 책 정보를 두번 X)
+            6. 튜플 순서 상관없음 (1, 3, 7, 5, 2, ...)
+
+        - 관계 데이터 모델 구성요소
+            - 릴레이션(Relation)
+            - 제약조건(Contraints)
+            - 관계대수(Relational algebra)
+
+- DML 학습
+    - SELECT문
+        - 복합조건
+        - 집계함수와 Group by
+        ![집계함수](https://raw.githubusercontent.com/HyungJuu/basic-database-2024/main/images/db004.png)
