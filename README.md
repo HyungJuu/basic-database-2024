@@ -36,7 +36,10 @@
     
     - SQL 기본학습
         - SSMS 실행
+        - 특이사항 : SSMS 쿼리창에서 소스코드 작성시, 빨간색 오류 밑줄이 가끔 표현(전부 오류는 아님)
+
         ![SSMS로그인](https://raw.githubusercontent.com/HyungJuu/basic-database-2024/main/images/db002.png)
+
 
     - DML 학습
         - SQL 명령어 키워드 : SELECT, INSERT, UPDATE, DELETE
@@ -45,6 +48,7 @@
         - SELECT
             ```sql
             -- 들여쓰기를 키워드 끝에 맞춰서 함
+            -- 순서 확인
              SELECT [All | DISTINCT] 속성이름(들)
                FROM 테이블이름(들)
              [WHERE 검색조건(들)]
@@ -91,15 +95,29 @@
     - SELECT문
         - 복합조건
         - 집계함수와 Group by
-        ![집계함수](https://raw.githubusercontent.com/HyungJuu/basic-database-2024/main/images/db004.png)
+            - SUM(총합), AVG(평균), COUNT(개수), MIN(최소), MAX(최대)
 
-        ```sql
-        -- COUNT()는 *을 사용할 수 있다
-        -- 나머지 집계함수는 열(컬럼) 하나만 지정해서 사용할 것★★
-        SELECT COUNT(saleprice) AS [주문개수]
-             , SUM(saleprice) AS [총 판매액]
-             , AVG(saleprice) AS [판매액 평균]
-             , MIN(saleprice) AS [주문도서 최소금액]
-             , MAX(saleprice) AS [주문도서 최대금액]
-	      FROM Orders
-        ```
+            ```sql
+            -- COUNT()는 *을 사용할 수 있다
+            -- 나머지 집계함수는 열(컬럼) 하나만 지정해서 사용할 것★★
+            SELECT COUNT(saleprice) AS [주문개수]
+                , SUM(saleprice) AS [총 판매액]
+                , AVG(saleprice) AS [판매액 평균]
+                , MIN(saleprice) AS [주문도서 최소금액]
+                , MAX(saleprice) AS [주문도서 최대금액]
+            FROM Orders
+            ```
+            ![집계함수](https://raw.githubusercontent.com/HyungJuu/basic-database-2024/main/images/db004.png)
+
+            - 집계함수 외 일반 컬럼은 Group by 절에 속한 컬럼만 SELECT문에 사용가능
+            - HAVING : 집계함수 필터. GROUP BY 뒤에 작성. WHERE절과 필터링이 다름
+            
+            ```sql
+            SELECT custid, COUNT(*) AS [구매수]
+              FROM Orders
+             WHERE saleprice >= 8000 
+             GROUP BY custid
+            HAVING COUNT(*) >= 2; -- 별칭 [구매수] 사용불가 / 열(속성)이 아님
+            ```
+
+
