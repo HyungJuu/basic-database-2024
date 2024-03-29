@@ -111,7 +111,7 @@
 
             - 집계함수 외 일반 컬럼은 Group by 절에 속한 컬럼만 SELECT문에 사용가능
             - HAVING : 집계함수 필터. GROUP BY 뒤에 작성. WHERE절과 필터링이 다름
-            
+
             ```sql
             SELECT custid, COUNT(*) AS [구매수]
               FROM Orders
@@ -120,4 +120,6 @@
             HAVING COUNT(*) >= 2; -- 별칭 [구매수] 사용불가 / 열(속성)이 아님
             ```
 
+            - 두개 이상의 테이블 질의(Query)
+                - 관계형 DB에서 가장 중요한 기법 중 하나★
 

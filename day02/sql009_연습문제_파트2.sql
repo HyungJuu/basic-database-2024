@@ -12,22 +12,45 @@ SELECT [name], [address]
 	FROM Customer;
 
 -- 4. 2023년 7월 4일 ~ 7월 7일 사이에 주문 받은 도서의 주문번호
-SELECT orderid, orderdate
+-- 방법1
+SELECT orderid
 	FROM Orders
  WHERE orderdate >= '2023-07-04' AND orderdate <= '2023-07-07';
 
+-- 방법2
+SELECT orderid
+	FROM Orders
+ WHERE orderdate BETWEEN '2023-07-04' AND '2023-07-07';
+
 -- 5. 2023년 7월 4일 ~ 7월 7일 사이에 주문 받은 도서를 제외한 도서의 주문번호
+-- 방법1
 SELECT orderid
 	FROM Orders
  WHERE NOT orderdate >= '2023-07-04' AND orderdate <= '2023-07-07';
 
+-- 방법2
+SELECT orderid
+	FROM Orders
+ WHERE orderdate NOT BETWEEN '2023-07-04' AND '2023-07-07';
+
 -- 6. 성이 '김'씨인 고객의 이름과 주소
 SELECT [name], [address]
 	FROM Customer
- WHERE name LIKE '김%';
+ WHERE [name] LIKE '김%';
 
 -- 7. 성이 '김'씨이고 이름이 '아'로 긑나는 고객의 이름과 주소
+-- 방법1
 SELECT [name], [address]
 	FROM Customer
- WHERE name LIKE '김%' AND name LIKE '%아';
+ WHERE [name] LIKE '김%' AND [name] LIKE '%아';
 
+-- 방법2
+SELECT [name], [address]
+	FROM Customer
+ WHERE [name] LIKE '김%아';
+
+/*
+SELECT [name], [address]
+	FROM Customer
+ WHERE [name] LIKE '김_아';
+*/
