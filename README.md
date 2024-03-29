@@ -92,3 +92,14 @@
         - 복합조건
         - 집계함수와 Group by
         ![집계함수](https://raw.githubusercontent.com/HyungJuu/basic-database-2024/main/images/db004.png)
+
+        ```sql
+        -- COUNT()는 *을 사용할 수 있다
+        -- 나머지 집계함수는 열(컬럼) 하나만 지정해서 사용할 것★★
+        SELECT COUNT(saleprice) AS [주문개수]
+             , SUM(saleprice) AS [총 판매액]
+             , AVG(saleprice) AS [판매액 평균]
+             , MIN(saleprice) AS [주문도서 최소금액]
+             , MAX(saleprice) AS [주문도서 최대금액]
+	      FROM Orders
+        ```
