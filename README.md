@@ -6,6 +6,7 @@
     - DBMS 엔진 &rarr; 개발자 버전
         - ISO 다운로드 후 설치 추천
         - SQL Server에 대한 Azure 확장 비활성화 후 진행
+        ![기능선택](https://raw.githubusercontent.com/HyungJuu/basic-database-2024/main/images/db001.png)
         - 데이터베이스 엔진 구성부터 중요★★★
             - Windows 인증모드 &rarr; 외부에서 접근 불가
             - 혼합모드(sa)에 대한 암호를 지정  
@@ -13,7 +14,7 @@
             - 데이터루트 디렉토리 변경
 
     - 개발툴 설치
-        - SSMS(SQL Server Management Studio) &rarr; 한국어버전설치 https://learn.microsoft.com/ko-kr/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16
+        - [SSMS(SQL Server Management Studio)](https://learn.microsoft.com/ko-kr/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) &rarr; 한국어버전설치 
             - DB 접근, 여러 개발작업 툴
 
     - 데이터베이스 개념
@@ -34,6 +35,7 @@
     
     - SQL 기본학습
         - SSMS 실행
+        ![SSMS로그인](https://raw.githubusercontent.com/HyungJuu/basic-database-2024/main/images/db002.png)
 
     - DML 학습
         - SQL 명령어 키워드 : SELECT, INSERT, UPDATE, DELETE
