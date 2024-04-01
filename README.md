@@ -153,13 +153,29 @@
             ![키](https://raw.githubusercontent.com/HyungJuu/basic-database-2024/main/images/db006.png)
 
             - 데이터 무결성(Integrity) : DB에 저장된 데이터의 일관성과 정확성을 지키는 것
-                - 도메인 무결성 제약조건 : 데이터타입(type), 널(NULL/NOT NULL), 기본값(default), 체크(check) 등 특성을 지키는 것
-                - 개체 무결성 제약조건 (=기본키 제약조건) : Unique + NOT NULL(값이 중복되면 안되고, 빠져도 안됨)
+                - 도메인 무결성 제약조건  
+                    &rarr; 데이터타입(type), 널(NULL/NOT NULL), 기본값(default), 체크(check) 등 특성을 지키는 것
+                - 개체 무결성 제약조건 (=기본키 제약조건)  
+                    &rarr; Unique + NOT NULL(값이 중복되면 안되고, 빠져도 안됨)
                 - 참조 무결성 제약조건 (=외래키 제약조건)  
                     &rarr; 부모의 키가 아닌값은 사용할 수 없음 (외래키가 바뀔때 기본키의 값이 아닌 것은 제약을 받음)
+                    - RESTRICT : 자식에서 키를 사용하고 있으면 부모 삭제 금지
+                    - CASCADE : 부모가 지워지면 해당 자식도 같이 삭제
+                    - DEFAULT : 부모가 지워지면 자식은 지정된 기본값으로 변경
+                    - NULL : 부모가 지워지면 자식의 해당값을 NULL로 변경
                 - 유일성 제약조건  
                     &rarr; 일반 속성의 값이 중복되면 안되는 제약조건. NULL값은 허용
+
 - DML 학습
     - SELECT문
         - JOIN
             - OUTER JOIN(외부조인)
+                - LEFT | RIGHT | FULL(거의 사용 X)  
+                &rarr; [왼쪽|오른쪽|양쪽] 테이블을 기준으로 조건에 일치하지 않는 [왼쪽|오른쪽|양쪽] 테이블 데이터 모두 표시(LEFT | RIGHT | FULL OUTER JOIN)
+            
+            - 부속질의(SubQuery)
+                - 쿼리 내에 다시 쿼리를 작성하는 것
+                - 서브쿼리를 쓸 수 있는 위치
+                    - SELECT절
+                    - FROM절
+                    - WHERE절
