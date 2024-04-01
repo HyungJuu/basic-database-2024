@@ -56,3 +56,55 @@ CREATE TABLE NewBook (
     price INT DEFAULT 10000 CHECK(price > 1000) -- 기본키 제약조건, 체크 제약조건
     PRIMARY KEY (bookname, publisher)   -- 개체 무결성 제약조건
 );
+
+-- 새 고객테이블 생성(기본키)
+CREATE TABLE NewCustomer (
+    custid INT PRIMARY KEY,
+    custname VARCHAR(40),
+    custaddress VARCHAR(255),
+    phone VARCHAR(30)
+);
+
+-- 새 주문테이블 생성(기본키 + 외래키)
+CREATE TABLE NewOrder (
+    orderid     INT,
+    custid      INT NOT NULL,
+    bookid      INT NOT NULL,
+    saleprice   INT,
+    orderdate   DATE,
+    PRIMARY KEY (orderid),
+    FOREIGN KEY (custid) REFERENCES NewCustomer(custid) ON DELETE CASCADE
+);
+
+-- 2. 테이블 변경 / 수정 ALTER
+CREATE TABLE MyBook (
+    bookid      INT,
+    bookname    VARCHAR(20),
+    publisher   VARCHAR(20),
+    price       INT
+);
+
+-- MyBook에 isbn(일련번호)이라는 컬럼 추가
+ALTER TABLE MyBook ADD isbn VARCHAR(13);
+
+-- isbn을 INT형으로 변경
+ALTER TABLE MyBook ALTER COLUMN isbn INT;
+
+-- isbn 컬럼 삭제
+ALTER TABLE MyBook DROP COLUMN isbn;
+
+-- bookname의 제약조건을 NOT NULL로 적용
+ALTER TABLE MyBook ALTER COLUMN bookname INT NOT NULL;
+
+-- bookid 기본키 설정
+ALTER TABLE MyBook ALTER COLUMN bookid INT NOT NULL;
+ALTER TABLE MyBook ADD PRIMARY KEY(bookid);
+
+-- 3. 테이블 삭제
+DROP TABLE MyBook;
+
+-- 자식테이블을 삭제하기 전에는 삭제 불가
+DROP TABLE NewOrder;    -- 자식테이블 : NewCustomer의 속성을 외래키로 사용중 
+DROP TABLE NewCustomer; 
+
+DROP TABLE NewBook;

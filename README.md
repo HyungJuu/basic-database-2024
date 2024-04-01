@@ -227,7 +227,8 @@
                 - 합집합(UNION, UNION ALL) ★★ : UNION(중복제거), UNION ALL(중복허용)
                 - 교집합(INTERSECT) &larr; 거의 사용x : 두 테이블에 모두 존재하는 값
                 - EXISTS :데이터 자체의 존재여부
-- DDL 학습
+
+- DDL 학습 : SSMS에서 마우스로 조작하는 것이 편리
     - CREATE
         - 객체(데이터베이스, 테이블, 뷰, 사용자 등)를 생성하는 구문
         ```sql
@@ -243,9 +244,38 @@
             {[FORIEGN KEY 속성이름 REFERENCES 테이블이름(속성이름)]
                 [ON UPDATE [NO ACTION | CASCADE | SET NULL | SET DEFAULT]]
             }
-        )
+        );
         ```
+
     - ALTER
         - 객체를 변경(수정)하는 구문
+        ```sql
+        ALTER TABLE 테이블명
+            [ADD 속성이름 데이터타입]
+            [DROP COLUMN 속성이름]
+            [ALTER COLUMN 속성이름 데이터타입]
+            [ALTER COLUMN 속성이름 [NULL | NOT NULL]]
+            [ADD PRIMARY KEY(속성이름)]
+            [[ADD | DROP] 제약조건이름];
+        ```
+
     - DROP
         - 객체를 삭제하는 구문
+        ```sql
+        DROP TABLE 테이블명;
+
+        ```
+        
+        - 외래키로 사용되는 기본키가 있으면, 외래키를 사용하는 테이블을 삭제 후 기본키의 테이블을 삭제해야 함★
+
+## 4일차
+- DML 학습(SELECT 외)
+    - INSERT
+    - UPDATE
+    - DELETE
+
+- SQL 고급
+    - 내장함수
+    - 서브쿼리 리뷰
+    - 뷰
+    - 인덱스
