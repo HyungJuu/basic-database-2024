@@ -222,7 +222,30 @@
                                                          WHERE publisher = '대한미디어'));
                     ```
 
-            - 집합연산
-                - 합집합
-                - 차집합
-                - 교집합
+            - 집합연산 : JOIN도 집합이지만, 속성별로 가로로 병합하기 때문에 집합이라고 부르지 않음. 집합은 데이터를 세로로 합치는 것
+                - 차집합(EXCEPT) &larr; 거의 사용x : 하나의 테이블에서 교집합 값을 뺀 나머지
+                - 합집합(UNION, UNION ALL) ★★ : UNION(중복제거), UNION ALL(중복허용)
+                - 교집합(INTERSECT) &larr; 거의 사용x : 두 테이블에 모두 존재하는 값
+                - EXISTS :데이터 자체의 존재여부
+- DDL 학습
+    - CREATE
+        - 객체(데이터베이스, 테이블, 뷰, 사용자 등)를 생성하는 구문
+        ```sql
+        -- 테이블 생성에 한정
+        CREATE TABLE 테이블명
+        ({속성이름 데이터타입
+            [NOT NULL]
+            [UNIQUE]
+            [DEFAULT 기본값]
+            [CHECK 체크조건]
+         }
+            [PRIMARY KEY 속성이름(들)]
+            {[FORIEGN KEY 속성이름 REFERENCES 테이블이름(속성이름)]
+                [ON UPDATE [NO ACTION | CASCADE | SET NULL | SET DEFAULT]]
+            }
+        )
+        ```
+    - ALTER
+        - 객체를 변경(수정)하는 구문
+    - DROP
+        - 객체를 삭제하는 구문
