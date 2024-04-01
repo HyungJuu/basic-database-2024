@@ -176,6 +176,53 @@
             - 부속질의(SubQuery)
                 - 쿼리 내에 다시 쿼리를 작성하는 것
                 - 서브쿼리를 쓸 수 있는 위치
-                    - SELECT절
-                    - FROM절
-                    - WHERE절
+                    - SELECT절 : 한컬럼에 하나의 값
+                    ```sql
+                    -- 서브쿼리(SELECT절)
+                    -- 무조건 한건에 1컬럼만 연결가능
+                    -- 조인으로 가능(조인보다 성능에 취약)
+                    SELECT o.orderid
+                         , o.custid
+                         , (SELECT [name] FROM Customer WHERE custid = o.custid) AS '고객명'
+                         , o.bookid
+                         , (SELECT bookname FROM Book WHERE bookid = o.bookid) AS '도서명'
+                         , o.saleprice
+                         , o.orderdate
+                      FROM Orders AS o;
+                    ```
+
+                    - FROM절 : 가상테이블 사용
+                    ```sql
+                    -- 서브쿼리(FROM절)
+                    -- SELECT로 만들 실행결과(가상의 테이블)를 마치 DB에 있는 테이블처럼 사용가능
+                    SELECT t.*
+                      FROM (
+                            SELECT b.bookid
+                                 , b.bookname
+                                 , b.price
+                                 , b.publisher
+                                 , o.orderdate
+                                 , o.orderid
+                              FROM Book AS b, Orders AS o
+                             WHERE b.bookid = o.bookid
+                           ) AS t
+                    ```
+
+                    - WHERE절 : 여러 조건에 사용 &rarr; IN 또는 =
+                    ```sql
+                    -- 대한미디어에서 출판한 도서를 구매한 고객의 이름을 조회
+                    -- 서브쿼리 두번
+                    -- 조인으로 가능
+                    SELECT [name] AS '고객명'
+                      FROM Customer
+                     WHERE custid IN (SELECT custid
+                                        FROM Orders
+                                       WHERE bookid IN (SELECT bookid
+                                                          FROM Book
+                                                         WHERE publisher = '대한미디어'));
+                    ```
+
+            - 집합연산
+                - 합집합
+                - 차집합
+                - 교집합
