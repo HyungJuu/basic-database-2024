@@ -361,9 +361,26 @@
     -- 삭제
     DROP INDEX 인덱스이름 ON 테이블명;
     ```
+    
+    - SSMS에서 실행계획을 가지고 쿼리 실행성능을 체크할 수 있음
 
 - 파이썬 SQL Server 연동 프로그래밍
+    - Madang DB 관리 프로그램
     - PyQT GUI 생성
     - SQL Server 데이터 핸들링
+        - pymysql 라이브러리 설치
 
+        ```shell
+        > pip install pymssql
+        ```
+        - DB연결 설정 : Oracle, MySQL 등은 설정이 없음. 구성관리자에서 TCP/IP로 접근을 허용하지 않으면 접속 안됨
+            1. 시작메뉴 &rarr; 모든 앱 &rarr; Microsoft SQL Server 20xx &rarr; **SQL Server 20xx 구성관리자** 실행
+            2. SQL Server 네트워크 구성 &rarr; **MSSQL SERVER에 대한 프로토콜** 클릭
+            3. TCP/IP 프로토콜 상태 : 사용안함(최초) &rarr; 더블클릭
+            4. **프로토콜 사용 &rarr; '예'**로 변경
+            5. IP주소 탭 &rarr; IP주소가 본인 아이피인 것 &rarr; **사용 &rarr; '예'**로 변경
+            6. 127.0.0.1로 된 주소 &rarr; **사용 &rarr; '예'**로 변경 &rarr; 적용
+            7. SQL Server 서비스 &rarr; SQL Server(MSSQLSERVER) 우클릭 &rarr; **다시시작** 재시작 필요
+
+            ![구성관리자](https://raw.githubusercontent.com/HyungJuu/basic-database-2024/main/images/db007.png)
 - 데이터베이스 모델링
