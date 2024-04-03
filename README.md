@@ -325,8 +325,42 @@
 ## 5일차
 - SQL 고급
     - 서브쿼리 리뷰       
-    - 뷰
+    - 뷰 : 하나이상의 테이블을 합하여 만든 가상 테이블(JOIN, UNION)
+        - 편리성(및 재사용성) : 자주 사용되는 복잡한 질의를 뷰로 미리 정의
+        - 보안성 : 각 사용자별로 필요한 데이터만 선별. 중요한 질의내용 암호화 가능  
+            &rarr; 개인정보(주민번호)나 급여, 건강정보같은 민감한 정보를 제외하여 테이블 생성
+        - 논리적독립성 : 개념 스키마의 데이터베이스 구조가 변해도 외부 스키마에 영향을 주지 않도록 논리적 데이터 독립성 제공
+
+        - 원본데이터가 변경되면 같이 변경되고, 인덱스 생성은 어려움
+        - CUD(INSERT, UPDATE, DELETE) 연산에 제약이 있음
+        
+        ```sql
+        -- 생성
+        CREATE VIEW 뷰이름 [(열이름 [, ...])]
+        AS <SELECT 쿼리문>;
+
+        -- 수정
+        ALTER VIEW 뷰이름 [(열이름 [, ...])]
+        AS <SELECT 쿼리문>;
+
+        -- 삭제
+        DROP VIEW 뷰이름;
+        ```
+
     - 인덱스
+
+    ```sql
+    -- 생성
+    CREATE [UNIQUE] [CLUSTERED | NONCLUSTERED] INDEX 인덱스이름
+    ON 테이블명 (속성이름 [ASC | DESC] [, ...n]);
+
+    -- 수정
+    ALTER INDEX {인덱스이름 | ALL}
+    ON 테이블명 { REBUILD | DISABLE | REORGANIZE };
+
+    -- 삭제
+    DROP INDEX 인덱스이름 ON 테이블명;
+    ```
 
 - 파이썬 SQL Server 연동 프로그래밍
     - PyQT GUI 생성
