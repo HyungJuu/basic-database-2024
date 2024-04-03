@@ -377,9 +377,9 @@
             1. 시작메뉴 &rarr; 모든 앱 &rarr; Microsoft SQL Server 20xx &rarr; **SQL Server 20xx 구성관리자** 실행
             2. SQL Server 네트워크 구성 &rarr; **MSSQL SERVER에 대한 프로토콜** 클릭
             3. TCP/IP 프로토콜 상태 : 사용안함(최초) &rarr; 더블클릭
-            4. **프로토콜 사용 > '예'**로 변경
-            5. IP주소 탭 &rarr; IP주소가 본인 아이피인 것 &rarr; **사용 > '예'**로 변경
-            6. 127.0.0.1로 된 주소 &rarr; **사용 > '예'**로 변경 &rarr; 적용
+            4. **프로토콜 사용 '예'**로 변경
+            5. IP주소 탭 &rarr; IP주소가 본인 아이피인 것 &rarr; **사용 '예'**로 변경
+            6. 127.0.0.1로 된 주소 &rarr; **사용 '예'**로 변경 &rarr; 적용
             7. SQL Server 서비스 &rarr; SQL Server(MSSQLSERVER) 우클릭 &rarr; **다시시작** 재시작 필요
 
             ![구성관리자](https://raw.githubusercontent.com/HyungJuu/basic-database-2024/main/images/db007.png)
