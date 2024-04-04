@@ -396,5 +396,6 @@
 
     - 실행화면
     
+        https://github.com/HyungJuu/basic-database-2024/assets/158007420/292ac788-b3db-4eb4-81ca-f06e715671c0
 
 - 데이터베이스 모델링
