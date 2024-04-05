@@ -399,3 +399,24 @@
         https://github.com/HyungJuu/basic-database-2024/assets/158007420/292ac788-b3db-4eb4-81ca-f06e715671c0
 
 - 데이터베이스 모델링
+
+## 7일차
+- SQL 고급
+    - 트랜잭션 : ALL or Nothing ★★★
+    - 트랜잭션 속성(ACID)
+        - 원자성(Atomicity) : 전부 수행되거나 전부 수행되지 않아야 함
+        - 일관성(Consistency) : 수행 전, 후의 데이터베이스는 항상 일관된 상태를 유지해야 함
+        - 고립성(Isolation) : 수행 중인 트랜잭션에 다른 트랜잭션이 끼어들어 변경중인 데이터값을 훼손하는 일이 없어야 함
+        - 자립성(Durability) : 수행을 성공적으로 완료한 트랜잭션은 변경한 데이터를 영구히 저장해야 함
+
+    - TCL에서 사용할 키워드
+        - BEGIN, TRAN[SACTION], COMMIT, ROLLBACK, SAVE
+        ![키워드](https://raw.githubusercontent.com/HyungJuu/basic-database-2024/main/images/db009.png)
+
+    - SQL Server는 기본적으로 Auto Commit(시스템이 자동으로 트랜잭션을 건다)
+    - SSMS &rarr; 도구 &rarr; 옵션 &rarr; 쿼리 실행 &rarr; SQL Server &rarr; ANSI  
+        -> SET IMPLICIT_TRANSACTIONS 체크, 프로그램 재실행
+
+    - 트랜잭션 로직 처리시, 다른 트랜잭션의 간섭을 받지 않기 위한 것(Lock)
+    - 중요한 데이터 수정/삭제 시, 잘못된 변경을 방지하기 위한 것
+- 데이터베이스 모델링
