@@ -16,18 +16,15 @@ SELECT Names AS [도서명]
  ORDER BY Price DESC;
 
 -- 3. 다음과 같은 결과가 나오도록 SQL문을 작성하시오.(책을 한번도 빌린적이 없는 회원)
--- TODO
 SELECT m.Names AS [회원명]
 		 , m.Levels AS [회원등급]
 		 , m.Addr AS [회원주소]
-		 , r.returnDate AS [대여일]
-	FROM rentaltbl AS r, membertbl AS m
--- WHERE r.memberIdx = m.memberIdx
--- WHERE r.returnDate IS NULL
- ORDER BY m.Names ASC;
+		 , r.rentalDate AS [대여일]
+	FROM membertbl AS m LEFT OUTER JOIN rentaltbl AS r
+		ON m.memberIdx = r.memberIdx
+ WHERE r.rentalDate IS NULL
+ ORDER BY m.Levels ASC;
 
-SELECT *
-	FROM rentaltbl
 
 -- 4. 다음과 같은 결과가 나오도록 SQL문을 작성하시오.
 SELECT d.Names AS [책 장르]
@@ -38,9 +35,9 @@ SELECT d.Names AS [책 장르]
 
 
 -- 5. 다음과 같은 결과가 나오도록 SQL문을 작성하시오.
-SELECT d.Names AS [책 장르]
+SELECT ISNULL(d.Names, '--합계--') AS [책 장르]
 		 , COUNT(d.Division) AS [권수]
 		 , FORMAT(SUM(b.Price), '#,#') + ' 원' AS [총합계금액]
 	FROM divtbl AS d, bookstbl AS b
  WHERE d.Division = b.Division
- GROUP BY d.Names
+ GROUP BY ROLLUP(d.Names);
