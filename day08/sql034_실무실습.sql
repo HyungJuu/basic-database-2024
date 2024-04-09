@@ -40,13 +40,13 @@ SELECT FIRST_NAME + ' ' + LAST_NAME AS [Name]
  WHERE SALARY NOT BETWEEN 7000 AND 10000
  ORDER BY SALARY ASC;
 
-/* 1. 사원의 이름 중에 'e' 및 'o' 글자가 포함된 사원을 출력하시오.
+/* 4. 사원의 이름 중에 'e' 및 'o' 글자가 포함된 사원을 출력하시오.
       이때 머리글은 'e and o Name'라고 출력하시오.(10행) */
 SELECT LAST_NAME AS [e and o Name]
   FROM employees
  WHERE LAST_NAME LIKE '%e%' AND LAST_NAME LIKE '%o%';
 
-/* 2. 현재 날짜 타입을 날짜 함수를 통해 확인하고, 2006년 05월 20일부터 2007년 05월 20일 사이에 고용된 사원들의
+/* 5. 현재 날짜 타입을 날짜 함수를 통해 확인하고, 2006년 05월 20일부터 2007년 05월 20일 사이에 고용된 사원들의
       성과 이름(Name 별칭), 사원번호, 고용일자를 출력하시오.
       단, 입사일이 빠른 순으로 정렬하시오.(18행) */
 SELECT GETDATE();

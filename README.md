@@ -437,7 +437,7 @@
     <!-- html 이미지 태그 : 이미지 사이즈 조정 가능 -->
     <img src = "https://raw.githubusercontent.com/HyungJuu/basic-database-2024/main/images/db010.png" width = "900">
 
-## 8일차
+## 8일차 (24.04.08)
 - 인덱스 예제
 - 정규화
     - DB상에서 생기는 이상현상(삽입, 삭제, 수정)이 생기지 않는 릴레이션(테이블)을 분리해서 데이터베이스 설계
@@ -454,10 +454,34 @@
     1. DB관리자(SSMS)
         - hr데이터베이스 생성, 관계 설정
         - hr DB를 사용할 사용자 계정 생성, 필요 권한 설정
-            - *추가* sa의 비밀번호를 잃어버렸을 때 &rarr; Windows 인증으로 로그인 후
+            - **<추가>** sa의 비밀번호를 잃어버렸을 때 &rarr; Windows 인증으로 로그인 후
             - SSMS &rarr; 보안 &rarr; 로그인 &rarr; sa &rarr; 속성에서 비밀번호 변경 &rarr; SQL Server 인증으로 sa 로그인
             - SSMS &rarr; 보안 &rarr; 로그인 &rarr; 새 로그인
                 - 사용자 계정 : hr_user, 비밀번호 : hr_p@ss!
                 - 일반 : 기본 데이터베이스 &rarr; hr
                 - 사용자 매핑 : hr 선택, 데이터베이스 역할 멤버 : db_owner 추가 선택
+
     2. HR사용자 로그인(VS Code)
+        - SELECT
+        - WHERE, ORDER BY
+        - FUNCTION
+        - AGGREGATE FUNC
+        - JOIN
+        - SET ...
+
+## 9일차 (24.04.09)
+- 실무실습
+    - 쿼리 실습
+        - 기본 SELECT, WHERE, ORDER BY
+        - 집계함수 GROUP BY, ROLLUP
+        - JOIN, SUBQUERY, UNION ...
+        - CASE WHEN THEN END ...
+        - 내장함수 ...
+
+        <img src = "https://raw.githubusercontent.com/HyungJuu/basic-database-2024/main/images/db011.png" width = "900">
+
+- 추가 학습 부분
+    - 트랜잭션
+    - DB보안 백업과 복원
+    - 모델링 + 정규화
+    - 데이터모델링 실습
